@@ -5,7 +5,9 @@ $primary-dark: #473f40;
 // Backgrounds
 $bg-header: #f4f4f4;
 $bg-portfolio: #e1e1e1;
+$bg-image-box-grey: #c4c4c4;
 $bg-blog: #615550;
+$bg-image-box-lightbrown: #c4c4c4;
 $bg-about: #e1e1e1;
 $bg-contact: #273137;
 $bg-footer: #f4f4f4;
@@ -30,5 +32,5 @@ $header-height: 100px;
 $border-radius: 10px;
 
 // Shadows
-$shadow-bottom: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+$shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
   rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;

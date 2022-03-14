@@ -1,0 +1,10 @@
+%container {
+  max-width: $content-width;
+  padding: $spacing-lg;
+  margin: 0 auto;
+}
+
+.section {
+  @extend %container;
+  @include flex-container(column, center, center);
+}
