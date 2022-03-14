@@ -1,0 +1,37 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $bg-header;
+  box-shadow: $shadow-bottom;
+
+  nav {
+    @extend %container;
+    @include flex-container(row, center, space-between);
+    min-height: $header-height;
+
+    ul {
+      @include flex-container(row, center, center);
+      list-style: none;
+    }
+
+    a {
+      display: block;
+      padding: $spacing-sm $spacing-md;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+main {
+  margin-top: $header-height;
+}
+
+#home,
+#portfolio,
+#blog,
+#about,
+#contact {
+  scroll-margin-top: $header-height + $spacing-lg;
+}

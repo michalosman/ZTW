@@ -1,0 +1,24 @@
+body {
+  font-family: $font-family;
+  color: $font-color;
+}
+
+.logo {
+  font-size: $font-lg;
+  text-transform: uppercase;
+  letter-spacing: get-letter-spacing($font-lg, 'lg');
+  font-weight: bold;
+}
+
+.nav-link {
+  font-size: $font-sm;
+  text-transform: uppercase;
+  letter-spacing: get-letter-spacing($font-sm, 'sm');
+}
+
+// TODO
+// .title-bg {
+// }
+
+// .title-sm {
+// }

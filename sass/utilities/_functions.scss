@@ -1,0 +1,15 @@
+@function get-column-width($columns-amount) {
+  @return 100% / $columns-amount;
+}
+
+@function get-letter-spacing($font-size, $size) {
+  @if $size == 'sm' {
+    @return 0.1 * $font-size;
+  }
+  @if $size == 'md' {
+    @return 0.2 * $font-size;
+  }
+  @if $size == 'lg' {
+    @return 0.3 * $font-size;
+  }
+}
