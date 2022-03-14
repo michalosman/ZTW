@@ -20,11 +20,13 @@ body {
 }
 
 .title-lg {
+  @include hover_sm();
   @extend .text-lg;
   margin-top: $spacing-sm;
 }
 
 .title-sm {
+  @include hover_sm();
   @extend .text-sm;
   font-weight: 400;
 }

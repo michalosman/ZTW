@@ -4,3 +4,14 @@
   align-items: $align;
   justify-content: $justify;
 }
+@mixin hover_sm(){
+  &:hover {
+    transform: scale(1.10);
+    transition-duration: 0.5s;
+  }
+  &:not(:hover) {
+    transform: scale(1.0);
+    transition-duration: 0.5s;
+  }
+  
+}

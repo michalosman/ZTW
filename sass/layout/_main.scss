@@ -47,13 +47,69 @@
     gap: $spacing-lg * 2;
     margin-top: $spacing-md;
   }
+  .details2 {
+    @include flex-container(column, flex-start, center);
+    gap: $spacing-lg * 2;
+    margin-top: $spacing-sm;
+    .skills {
+      font-weight: bolder;
+      font-size: $font-md;
+    }
+  }
 }
 
 // Contact
 .contact {
   background-color: $bg-contact;
   color: $primary-light;
-
+  span {
+    padding: 5px;
+    background-color: $bg-contact;
+    position: relative;
+  }
+  input {
+    background-color: $bg-contact;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    border: 3px solid #ddd;
+    width: 400px;
+  }
+  span {
+    left: 100px;
+  }
+  .name {
+    input {
+      height: 50px;
+    }
+    span {
+      top: -25px;
+      left: 100px;
+    }
+  }
+  .email {
+    input {
+      height: 50px;
+    }
+    span {
+      top: -25px;
+      left: 100px;
+    }
+  }
+  .message {
+    margin-bottom: 50px;
+    input {
+      height: 200px;
+      // width: 400px;
+    }
+    span {
+      top: -100px;
+    }
+  }
+  .details2 {
+    @include flex-container(column, center, center);
+    gap: $spacing-lg * 2;
+    margin-top: $spacing-sm;
+  }
   //! Remove after implementation
-  height: 600px;
+  // height: 600px;
 }
