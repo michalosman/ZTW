@@ -1,7 +1,59 @@
-img {
-  width: 100%;
+// Home
+.home {
+  background-color: $bg-portfolio;
+
+  img {
+    width: 100%;
+    height: calc(100vh - $header-height);
+  }
 }
 
-.wrapper {
-  @extend %container;
+// Portfolio
+.portfolio {
+  background-color: $bg-portfolio;
+  padding-bottom: $spacing-lg;
+}
+
+.projects {
+  @include flex-container(row, center, space-between);
+  gap: $spacing-lg;
+  width: 100%;
+  margin-top: $spacing-lg;
+}
+
+.project-box {
+  min-width: get-column-width(4, true);
+  min-height: get-column-width(4, true);
+  border-radius: $border-radius;
+  background-color: $bg-image-box-grey;
+}
+
+// Blog
+.blog {
+  background-color: $bg-blog;
+  color: $primary-light;
+
+  //! Remove after implementation
+  height: 600px;
+}
+
+// About
+.about {
+  background-color: $bg-about;
+  padding-bottom: $spacing-lg;
+
+  .details {
+    @include flex-container(row, flex-start, center);
+    gap: $spacing-lg * 2;
+    margin-top: $spacing-md;
+  }
+}
+
+// Contact
+.contact {
+  background-color: $bg-contact;
+  color: $primary-light;
+
+  //! Remove after implementation
+  height: 600px;
 }

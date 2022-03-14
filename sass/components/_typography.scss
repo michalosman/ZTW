@@ -1,24 +1,36 @@
 body {
   font-family: $font-family;
   color: $font-color;
+  text-transform: uppercase;
 }
 
-.logo {
+.text-lg {
   font-size: $font-lg;
-  text-transform: uppercase;
   letter-spacing: get-letter-spacing($font-lg, 'lg');
-  font-weight: bold;
 }
 
-.nav-link {
+.text-md {
+  font-size: $font-md;
+  letter-spacing: get-letter-spacing($font-md, 'md');
+}
+
+.text-sm {
   font-size: $font-sm;
-  text-transform: uppercase;
   letter-spacing: get-letter-spacing($font-sm, 'sm');
 }
 
-// TODO
-// .title-bg {
-// }
+.title-lg {
+  @extend .text-lg;
+  margin-top: $spacing-sm;
+}
 
-// .title-sm {
-// }
+.title-sm {
+  @extend .text-sm;
+  font-weight: 400;
+}
+
+.para {
+  @extend .text-md;
+  letter-spacing: get-letter-spacing($font-sm, 'sm');
+  text-transform: none;
+}

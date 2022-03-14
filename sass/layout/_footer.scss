@@ -1,3 +1,9 @@
 footer {
-  @extend %container;
+  text-align: center;
+  background-color: $bg-footer;
+  padding: $spacing-lg;
+
+  p {
+    margin-bottom: $spacing-sm;
+  }
 }

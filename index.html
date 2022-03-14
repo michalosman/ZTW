@@ -10,50 +10,79 @@
   <body>
     <header>
       <nav>
-        <div class="logo">Code Art</div>
+        <div class="text-lg">Code Art</div>
         <ul>
           <li>
-            <a class="nav-link" href="#home">Home</a>
+            <a class="text-sm" href="#home">Home</a>
           </li>
           <li>
-            <a class="nav-link" href="#portfolio">Portfolio</a>
+            <a class="text-sm" href="#portfolio">Portfolio</a>
           </li>
           <li>
-            <a class="nav-link" href="#blog">Blog</a>
+            <a class="text-sm" href="#blog">Blog</a>
           </li>
           <li>
-            <a class="nav-link" href="#about">About</a>
+            <a class="text-sm" href="#about">About</a>
           </li>
           <li>
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="text-sm" href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <div id="home"><img src="./assets/home.png" alt="My desk" /></div>
-      <div class="wrapper">
-        <div id="portfolio">
-          <h2>My works</h2>
-          <h1>Portfolio</h1>
-        </div>
-        <div id="blog">
-          <h2>Last news</h2>
-          <h1>Blog</h1>
-        </div>
-        <div id="about">
-          <h2>Who am I</h2>
-          <h1>About</h1>
-        </div>
-        <div id="contact">
-          <h2>Get in touch</h2>
-          <h1>Contact</h1>
-        </div>
+      <div id="home" class="home">
+        <img src="./assets/home.png" alt="My desk" />
+      </div>
+      <div id="portfolio" class="portfolio">
+        <section class="section">
+          <h2 class="title-sm">My works</h2>
+          <h1 class="title-lg">Portfolio</h1>
+          <div class="projects">
+            <div class="project-box"></div>
+            <div class="project-box"></div>
+            <div class="project-box"></div>
+            <div class="project-box"></div>
+          </div>
+        </section>
+      </div>
+      <div id="blog" class="blog">
+        <section class="section">
+          <h2 class="title-sm">Last news</h2>
+          <h1 class="title-lg">Blog</h1>
+        </section>
+      </div>
+      <div id="about" class="about">
+        <section class="section">
+          <h2 class="title-sm">Who am I</h2>
+          <h1 class="title-lg">About</h1>
+          <div class="details">
+            <img src="./assets/person.png" alt="Picture of me" />
+            <div class="para">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ab
+              voluptate pariatur animi eum accusamus blanditiis laborum adipisci
+              explicabo repellat ullam delectus expedita placeat sed reiciendis,
+              debitis voluptatum magni totam laudantium dolorum. Harum
+              perspiciatis illum error qui quo voluptatem veniam voluptas est
+              praesentium quibusdam voluptatum repellat tempore debitis, rerum,
+              aperiam asperiores quae adipisci non eos? Mollitia, voluptatibus?
+              Ipsam nulla facere quod vero consequuntur recusandae temporibus
+              quos labore, molestias, aperiam necessitatibus? Magnam odit beatae
+              ipsum.
+            </div>
+          </div>
+        </section>
+      </div>
+      <div id="contact" class="contact">
+        <section class="section">
+          <h2 class="title-sm">Get in touch</h2>
+          <h1 class="title-lg">Contact</h1>
+        </section>
       </div>
     </main>
     <footer>
-      <p>All rights reserved</p>
-      <div class="logo">Code Art</div>
+      <p class="text-sm">All rights reserved</p>
+      <div class="text-lg">Code Art</div>
     </footer>
   </body>
 </html>

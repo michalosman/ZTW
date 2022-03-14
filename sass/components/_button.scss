@@ -1,7 +1,21 @@
-.btn-primary {
-  @extend %btn;
+%btn {
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 }
 
-.btn-secondary {
+.btn-primary {
   @extend %btn;
+  background-color: $primary-dark;
+  color: $primary-light;
 }
