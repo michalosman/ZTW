@@ -1,3 +1,10 @@
+.portfolio,
+.blog,
+.about,
+.contact {
+  padding-bottom: $spacing-lg;
+}
+
 // Home
 .home {
   background-color: $bg-portfolio;
@@ -11,21 +18,20 @@
 // Portfolio
 .portfolio {
   background-color: $bg-portfolio;
-  padding-bottom: $spacing-lg;
-}
 
-.projects {
-  @include flex-container(row, center, space-between);
-  gap: $spacing-lg;
-  width: 100%;
-  margin-top: $spacing-lg;
-}
+  .projects {
+    @include flex-container(row, center, space-between);
+    width: 100%;
+    margin-top: $spacing-lg;
+  }
 
-.project-box {
-  min-width: get-column-width(4, true);
-  min-height: get-column-width(4, true);
-  border-radius: $border-radius;
-  background-color: $bg-image-box-grey;
+  .project-box {
+    @include hover-scale();
+    min-width: get-column-width(4, true);
+    min-height: get-column-width(4, true);
+    border-radius: $border-radius;
+    background-color: $bg-image-box-grey;
+  }
 }
 
 // Blog
@@ -33,26 +39,47 @@
   background-color: $bg-blog;
   color: $primary-light;
 
-  //! Remove after implementation
-  height: 600px;
+  .posts {
+    @include flex-container(row, center, space-between);
+    width: 100%;
+    margin-top: $spacing-lg;
+  }
+
+  .post-box {
+    @include hover-scale();
+    min-width: get-column-width(3, true);
+    min-height: get-column-width(3, true);
+    border-radius: $border-radius;
+    background-color: $bg-image-box-lightbrown;
+  }
 }
 
 // About
 .about {
   background-color: $bg-about;
-  padding-bottom: $spacing-lg;
 
   .details {
-    @include flex-container(row, flex-start, center);
+    @include flex-container(row, center, center);
     gap: $spacing-lg * 2;
     margin-top: $spacing-md;
   }
-  .details2 {
+
+  .right-panel {
     @include flex-container(column, flex-start, center);
     gap: $spacing-lg * 2;
-    margin-top: $spacing-sm;
-    .skills {
-      font-weight: bolder;
+  }
+
+  .skills {
+    @include flex-container(column, flex-start, center);
+    gap: $spacing-sm;
+
+    .skill-box {
+      display: inline-block;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius;
+      margin-right: $spacing-sm;
+      background-color: $primary-dark;
+      color: $primary-light;
       font-size: $font-md;
     }
   }
@@ -62,54 +89,57 @@
 .contact {
   background-color: $bg-contact;
   color: $primary-light;
-  span {
-    padding: 5px;
-    background-color: $bg-contact;
-    position: relative;
-  }
-  input {
-    background-color: $bg-contact;
-    border-radius: 10px;
-    transition: border-color 0.3s ease;
-    border: 3px solid #ddd;
-    width: 400px;
-  }
-  span {
-    left: 100px;
-  }
-  .name {
-    input {
-      height: 50px;
-    }
-    span {
-      top: -25px;
-      left: 100px;
-    }
-  }
-  .email {
-    input {
-      height: 50px;
-    }
-    span {
-      top: -25px;
-      left: 100px;
-    }
-  }
-  .message {
-    margin-bottom: 50px;
-    input {
-      height: 200px;
-      // width: 400px;
-    }
-    span {
-      top: -100px;
-    }
-  }
-  .details2 {
+
+  .form {
     @include flex-container(column, center, center);
-    gap: $spacing-lg * 2;
-    margin-top: $spacing-sm;
+    gap: $spacing-lg;
+    margin-top: $spacing-md;
+    margin-right: 53px;
+
+    label {
+      input {
+        height: 50px;
+      }
+      span {
+        top: -25px;
+        left: 100px;
+      }
+    }
+
+    span {
+      position: relative;
+      padding: 5px;
+      background-color: $bg-contact;
+    }
+
+    input,
+    textarea {
+      @include focus-input();
+      width: 400px;
+      padding-left: $spacing-sm;
+      border: 3px solid $primary-light;
+      border-radius: $border-radius;
+      background-color: $bg-contact;
+    }
+
+    .message {
+      margin-right: 20px;
+
+      span {
+        top: -195px;
+        left: 120px;
+      }
+
+      textarea {
+        height: 200px;
+        padding: $spacing-sm;
+        resize: none;
+      }
+    }
+
+    button {
+      margin-left: 315px;
+      font-weight: bold;
+    }
   }
-  //! Remove after implementation
-  // height: 600px;
 }
