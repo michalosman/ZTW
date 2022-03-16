@@ -1,9 +1,9 @@
 @function get-column-width($columns-amount, $gap) {
   @if $gap {
-    @return calc(($content-width - $spacing-lg * 2) / $columns-amount) -
+    @return calc(($container-width - $container-padding * 2) / $columns-amount) -
       $spacing-lg;
   }
-  @return calc(($content-width - $spacing-lg * 2) / $columns-amount);
+  @return calc(($container-width - $container-padding * 2) / $columns-amount);
 }
 
 @function get-letter-spacing($font-size, $size) {

@@ -7,7 +7,7 @@ $bg-header: #f4f4f4;
 $bg-portfolio: #e1e1e1;
 $bg-image-box-grey: #c4c4c4;
 $bg-blog: #615550;
-$bg-image-box-lightbrown: #c4c4c4;
+$bg-image-box-lightbrown: #e1e1e1;
 $bg-about: #e1e1e1;
 $bg-contact: #273137;
 $bg-footer: #f4f4f4;
@@ -25,7 +25,8 @@ $spacing-md: 20px;
 $spacing-lg: 30px;
 
 // Sizes
-$content-width: 1200px;
+$container-width: 1200px;
+$container-padding: $spacing-lg;
 $header-height: 100px;
 
 // Borders

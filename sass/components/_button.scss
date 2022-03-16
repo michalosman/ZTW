@@ -1,23 +1,19 @@
 %btn {
-  border: none;
-  cursor: pointer;
+  @include hover-scale();
   padding: $spacing-sm $spacing-md;
   border-radius: $border-radius;
-  transition: transform 0.5s ease-in-out;
-  margin-right: 20px;
   font-size: $font-md;
-
-  &:hover {
-    transform: scale(1.10);
-  }
-
-  &:active {
-    transform: scale(1);
-  }
+  text-transform: uppercase;
 }
 
 .btn-primary {
   @extend %btn;
   background-color: $primary-dark;
   color: $primary-light;
+}
+
+.btn-primary-sm {
+  @extend .btn-primary;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-sm;
 }

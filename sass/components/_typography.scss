@@ -4,9 +4,9 @@ body {
   text-transform: uppercase;
 }
 
-.text-lg {
-  font-size: $font-lg;
-  letter-spacing: get-letter-spacing($font-lg, 'lg');
+.text-sm {
+  font-size: $font-sm;
+  letter-spacing: get-letter-spacing($font-sm, 'sm');
 }
 
 .text-md {
@@ -14,21 +14,25 @@ body {
   letter-spacing: get-letter-spacing($font-md, 'md');
 }
 
-.text-sm {
-  font-size: $font-sm;
-  letter-spacing: get-letter-spacing($font-sm, 'sm');
-}
-
-.title-lg {
-  @include hover_sm();
-  @extend .text-lg;
-  margin-top: $spacing-sm;
+.text-lg {
+  font-size: $font-lg;
+  letter-spacing: get-letter-spacing($font-lg, 'lg');
 }
 
 .title-sm {
-  @include hover_sm();
   @extend .text-sm;
   font-weight: 400;
+}
+
+.title-md {
+  margin-top: $spacing-sm;
+  font-weight: bold;
+  font-size: $font-md;
+}
+
+.title-lg {
+  @extend .text-lg;
+  margin-top: $spacing-sm;
 }
 
 .para {

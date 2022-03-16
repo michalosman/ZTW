@@ -4,14 +4,46 @@
   align-items: $align;
   justify-content: $justify;
 }
-@mixin hover_sm(){
+
+@mixin hover-scale() {
+  transition: transform 0.2s ease-in-out;
+
   &:hover {
-    transform: scale(1.10);
-    transition-duration: 0.5s;
+    transform: scale(1.05);
   }
-  &:not(:hover) {
-    transform: scale(1.0);
-    transition-duration: 0.5s;
+
+  &:focus {
+    transform: scale(1.05);
   }
-  
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+@mixin hover-underline() {
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom 0.2s ease-in-out;
+  outline: none;
+
+  &:hover {
+    border-bottom: 3px solid $primary-dark;
+  }
+
+  &:focus {
+    border-bottom: 3px solid $primary-dark;
+  }
+}
+
+@mixin focus-input() {
+  transition: border-color 0.2s ease-in-out;
+
+  &:focus {
+    border-color: lightgreen;
+  }
+
+  &:active {
+    border-color: lightgreen;
+  }
 }
