@@ -56,4 +56,17 @@ public class BooksService implements IBooksService {
     public boolean deleteBook(int id) {
         return booksRepo.removeIf(b -> b.getId() == id);
     }
+
+    @Override
+    public Book updateBookAuthor(int bookId,String author){
+        Book bookToUpdate = booksRepo.stream()
+                .filter(b -> b.getId() == bookId)
+                .findAny()
+                .orElse(null);
+
+        if(bookToUpdate != null) {
+            bookToUpdate.setAuthorByString(author);
+        }
+        return bookToUpdate;
+    }
 }

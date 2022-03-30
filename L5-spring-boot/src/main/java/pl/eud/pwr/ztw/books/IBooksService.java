@@ -12,4 +12,6 @@ public interface IBooksService {
     public abstract Book updateBook(Book book);
 
     public abstract boolean deleteBook(int id);
+
+    public abstract Book updateBookAuthor(int bookId,String author);
 }
