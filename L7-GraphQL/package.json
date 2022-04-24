@@ -1,0 +1,19 @@
+{
+  "name": "l7-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon -e js,graphql src/App.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-yoga/node": "^2.3.0",
+    "graphql": "^16.3.0",
+    "nodemon": "^2.0.15"
+  }
+}
