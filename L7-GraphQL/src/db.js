@@ -2,14 +2,6 @@ import axios from "axios";
 
 const users = await fetchUsers();
 const todos = await fetchTodos();
-// const todos = [
-//   { id: 1, title: "Naprawić samochód", completed: false, user_id: 3 },
-//   { id: 2, title: "Posprzątać garaż", completed: true, user_id: 3 },
-//   { id: 3, title: "Napisać e-mail", completed: false, user_id: 3 },
-//   { id: 4, title: "Odebrać buty", completed: false, user_id: 2 },
-//   { id: 5, title: "Wysłać paczkę", completed: true, user_id: 2 },
-//   { id: 6, title: "Zamówic kuriera", completed: false, user_id: 3 },
-// ];
 
 async function fetchUsers() {
   try {
