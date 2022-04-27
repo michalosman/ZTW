@@ -5,7 +5,12 @@ export default /* GraphQL */ `
     users: [User!]
     user(id: ID!): User
   }
-
+  type Mutation {
+    addUser(name: String!,email: String!):DeleteResponse
+    addTodo(userId: ID!,title: String!):DeleteResponse
+    deleteTodo(id: ID!):DeleteResponse
+    deleteUser(id: ID!):DeleteResponse
+  }
   type User {
     id: ID!
     name: String!
@@ -19,5 +24,8 @@ export default /* GraphQL */ `
     title: String!
     completed: Boolean!
     user: User!
+  }
+  type DeleteResponse {
+    ok: Boolean!
   }
 `;

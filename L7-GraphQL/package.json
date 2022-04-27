@@ -1,8 +1,7 @@
 {
   "name": "l7-graphql",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
     "start": "nodemon -e js,graphql src/App.js",
@@ -15,6 +14,10 @@
     "@graphql-yoga/node": "^2.3.0",
     "axios": "^0.26.1",
     "graphql": "^16.3.0",
-    "nodemon": "^2.0.15"
-  }
+    "nodemon": "^2.0.15",
+    "fs":"^0.0.1-security",
+    "package.json": "^2.0.1"
+  },
+  "devDependencies": {},
+  "description": ""
 }
