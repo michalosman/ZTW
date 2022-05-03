@@ -1,105 +1,168 @@
-import axios from "axios";
-import { open, readFile, writeFile } from "fs/promises"
+import { readFile, writeFile } from "fs/promises";
 
-// const users = await fetchUsers();
-// const todos = await fetchTodos();
-// const modifyUser =  await modifyUser();
+//* Users
 
-async function fetchUsers() {
+async function saveUsers(data) {
   try {
-    // const users = await axios.get("https://jsonplaceholder.typicode.com/users");
-    var users = await readFile("db/users.json", 'utf8')
-    users = JSON.parse(users)
-    // console.log(users)
-    // return users.map(({ id, name, email }) => ({
-    //   id: id,
-    //   name: name,
-    //   email: email,
-    // }));
-    return users
+    await writeFile("db/users.json", JSON.stringify(data), "utf-8");
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 }
 
-async function fetchTodos() {
+async function getUsers() {
   try {
-    // const todos = await axios.get("https://jsonplaceholder.typicode.com/todos");
-    var todos = await readFile("db/todos.json", 'utf8')
-    todos = JSON.parse(todos)
-    return todos;
+    const users = await readFile("db/users.json", "utf8");
+    return JSON.parse(users);
   } catch (error) {
-    throw error;
+    console.log(error);
+    return [];
   }
 }
-async function saveUsers(data){
-  await writeFile("db/users.json", JSON.stringify(data), 'utf-8')
-}
-async function saveTodos(data){
-  await writeFile("db/todos.json", JSON.stringify(data), 'utf-8')
-}
-async function addUser({ name, email }) {
+
+async function getUser(id) {
   try {
-    // console.log(name,email,login)
-    var users = await fetchUsers()
-    var nextId = Math.max.apply(Math, users.map(function (o) { return o.id; })) + 1
+    const users = await getUsers();
+    return users.find((user) => user.id === Number.parseInt(id));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+async function getUserTodos(id) {
+  try {
+    const todos = await getTodos();
+    return todos.filter((todo) => todo.userId === id);
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+async function addUser(name, email) {
+  try {
+    const users = await getUsers();
+
     users.push({
-      id: nextId,
-      name: name,
-      email: email,
-    })
-    saveUsers(users)
+      id: getNextId(users),
+      name,
+      email,
+    });
+
+    saveUsers(users);
     return { ok: true };
-  } catch (e) {
-    throw (e);
-  }
-}
-async function addTodo({ userId, title }) {
-  try {
-    console.log(userId,title)
-    var todos = await fetchTodos()
-    var nextId = Math.max.apply(Math, todos.map(function (o) { return o.id; })) + 1
-    // var user = users.find(e => e.id = id)
-    // var x = []
-    todos.push({
-      userId: Number.parseInt(userId),
-      id: nextId,
-      title: title,
-      completed:false
-    })
-    // console.log(users[-1])
-    saveTodos(todos)
-    return { ok: true };
-  } catch (e) {
-    throw (e);
-  }
-}
-async function deleteTodo({ id }) {
-  try {
-    console.log("i",id)
-    var todos = await fetchTodos()
-    // console.log("l",todos.filter(t => t.id != Number.parseInt(id)))
-    todos = todos.filter(t => t.id != Number.parseInt(id))
-    await saveTodos(todos)
-    return { ok: true };
-  } catch (e) {
-    throw (e);
-  }
-}
-async function deleteUser({ id }) {
-  try {
-    console.log("i",id)
-    var users = await fetchUsers()
-    var todos = await fetchTodos()
-    // console.log("l",todos.filter(t => t.id != Number.parseInt(id)))
-    users = users.filter(t => t.id != Number.parseInt(id))
-    todos = todos.filter(t => t.userId != Number.parseInt(id))
-    await saveTodos(todos)
-    await saveUsers(users)
-    return { ok: true };
-  } catch (e) {
-    throw (e);
+  } catch (error) {
+    console.log(error);
+    return { ok: false };
   }
 }
 
-export default { fetchUsers, fetchTodos, addUser,addTodo,deleteTodo,deleteUser };
+async function deleteUser(id) {
+  try {
+    const users = await getUsers();
+    const todos = await getTodos();
+
+    const newTodos = todos.filter(
+      (todo) => todo.userId !== Number.parseInt(id)
+    );
+    const newUsers = users.filter((user) => user.id !== Number.parseInt(id));
+
+    await saveTodos(newTodos);
+    await saveUsers(newUsers);
+
+    return { ok: true };
+  } catch (error) {
+    console.log(error);
+    return { ok: false };
+  }
+}
+
+//* Todos
+
+async function saveTodos(data) {
+  try {
+    await writeFile("db/todos.json", JSON.stringify(data), "utf-8");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getTodos() {
+  try {
+    const todos = await readFile("db/todos.json", "utf8");
+    return JSON.parse(todos);
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+async function getTodo(id) {
+  try {
+    const todos = await getTodos();
+    return todos.find((todo) => todo.id === Number.parseInt(id));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+async function getTodoUser(id) {
+  try {
+    const users = await getUsers();
+    return users.find((user) => user.id === id);
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+async function addTodo(userId, title) {
+  try {
+    const todos = await getTodos();
+
+    todos.push({
+      id: getNextId(todos),
+      title,
+      completed: false,
+      userId: Number.parseInt(userId),
+    });
+
+    saveTodos(todos);
+    return { ok: true };
+  } catch (error) {
+    console.log(error);
+    return { ok: false };
+  }
+}
+
+async function deleteTodo(id) {
+  try {
+    const todos = await getTodos();
+    await saveTodos(todos.filter((todo) => todo.id !== Number.parseInt(id)));
+    return { ok: true };
+  } catch (error) {
+    console.log(error);
+    return { ok: false };
+  }
+}
+
+//* Utils
+
+function getNextId(array) {
+  return Math.max(...array.map((element) => element.id)) + 1;
+}
+
+export default {
+  getUsers,
+  getUser,
+  getUserTodos,
+  addUser,
+  deleteUser,
+  getTodos,
+  getTodo,
+  getTodoUser,
+  addTodo,
+  deleteTodo,
+};
